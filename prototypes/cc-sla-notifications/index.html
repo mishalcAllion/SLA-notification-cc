@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CC SLA Notifications & Unreads — Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-100 min-h-screen flex flex-col items-center py-12 px-6">
+
+  <!-- EPIC HEADER -->
+  <div class="w-full max-w-6xl mb-8">
+    <div class="flex items-start justify-between gap-4 flex-wrap">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Command Center &middot; Prototype</p>
+        <h1 class="text-2xl font-bold text-stone-900 mb-2">SLA Notifications & Unreads</h1>
+        <p class="text-sm text-stone-500 max-w-2xl">
+          Timer-based SLA tracking for Command Center messaging. Tracks elapsed time since last inbound client message,
+          surfaces Green/Yellow/Red status on thread cards, sorts by urgency, and provides management config + dashboards.
+          6 features across 3 prototype screens.
+        </p>
+      </div>
+      <div class="flex flex-col items-end gap-2 shrink-0 mt-1">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold bg-amber-100 text-amber-700 px-3 py-1 rounded-full border border-amber-200">Prototype</span>
+          <span class="text-xs text-stone-400 font-medium">March 2026</span>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap justify-end">
+          <!-- PRD Link -->
+          <a href="https://www.notion.so/CC-Notifications-Unreads-Feature-PRD-033ac6e1f5884537b42193ea4f264f28"
+             target="_blank"
+             class="inline-flex items-center gap-1.5 text-xs font-medium text-stone-600 bg-white border border-stone-200 rounded-lg px-3 py-1.5 hover:border-stone-400 hover:text-stone-900 transition-all">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none">
+              <rect width="16" height="16" rx="3" fill="#000"/>
+              <path d="M4 4h8v8H4z" fill="white" opacity="0.9"/>
+            </svg>
+            Notion PRD
+          </a>
+          <!-- Linear Project -->
+          <a href="https://linear.app/maestroinc/project/cc-messaging-sla-notifications-unreads-2b84c59b"
+             target="_blank"
+             class="inline-flex items-center gap-1.5 text-xs font-medium text-stone-600 bg-white border border-stone-200 rounded-lg px-3 py-1.5 hover:border-stone-400 hover:text-stone-900 transition-all">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16" fill="none">
+              <rect width="16" height="16" rx="3" fill="#5E6AD2"/>
+              <path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/>
+            </svg>
+            Linear Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLA COLOR LEGEND -->
+  <div class="w-full max-w-6xl mb-6">
+    <div class="bg-white rounded-xl border border-stone-200 px-5 py-3 flex items-center gap-6 flex-wrap">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400">SLA Status Legend</p>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+        <span class="text-xs text-stone-600">Green &mdash; Within SLA (no timer)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span class="text-xs text-stone-600">Yellow &mdash; Approaching violation (&ge;15 min)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+        <span class="text-xs text-stone-600">Red &mdash; In violation (&ge;30 min)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-gray-300"></span>
+        <span class="text-xs text-stone-600">N/A &mdash; Timer data unavailable</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTOTYPE SCREENS -->
+  <div class="w-full max-w-6xl mb-8">
+    <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
+      <div class="px-5 py-4 border-b border-stone-100 flex items-center justify-between">
+        <p class="text-xs font-bold uppercase tracking-widest text-stone-400">Prototype Screens</p>
+        <span class="text-xs text-stone-400">3 screens</span>
+      </div>
+
+      <!-- Screen 1 -->
+      <a href="s1-thread-list.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
+        <span class="text-xs font-bold text-stone-400">S1</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Thread List with SLA Indicators</p>
+          <p class="text-xs text-stone-400 mt-0.5">Status badges, 2-tier sorting, All/My Threads tabs, unread badges, clear timer action</p>
+        </div>
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="text-[10px] font-medium bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded">F2</span>
+          <span class="text-[10px] font-medium bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded">F3</span>
+          <span class="text-[10px] font-medium bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded">F4</span>
+        </div>
+        <span class="text-xs text-blue-600 font-medium hover:underline">Open &rarr;</span>
+      </a>
+
+      <!-- Screen 2 -->
+      <a href="s2-config.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
+        <span class="text-xs font-bold text-stone-400">S2</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">SLA Configuration Panel</p>
+          <p class="text-xs text-stone-400 mt-0.5">Yellow/Red threshold config, inequality operators, inbound/outbound, validation, restore defaults</p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-[10px] font-medium bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded">F5</span>
+        </div>
+        <span class="text-xs text-blue-600 font-medium hover:underline">Open &rarr;</span>
+      </a>
+
+      <!-- Screen 3 -->
+      <a href="s3-dashboard.html" class="grid px-5 py-4 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
+        <span class="text-xs font-bold text-stone-400">S3</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Management Dashboard & Violation Report</p>
+          <p class="text-xs text-stone-400 mt-0.5">Live SLA counts, compliance rate, filterable violation table, pagination</p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-[10px] font-medium bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded">F6</span>
+        </div>
+        <span class="text-xs text-blue-600 font-medium hover:underline">Open &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- LINEAR TICKET MAPPING -->
+  <div class="w-full max-w-6xl mb-8">
+    <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
+      <div class="px-5 py-4 border-b border-stone-100 flex items-center justify-between">
+        <p class="text-xs font-bold uppercase tracking-widest text-stone-400">Linear Ticket Mapping</p>
+        <span class="text-xs text-stone-400">6 features &middot; 16 tickets</span>
+      </div>
+
+      <!-- Column headers -->
+      <div class="grid px-5 py-2 bg-stone-50 border-b border-stone-100 text-[10px] font-bold uppercase tracking-widest text-stone-400"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <div>#</div>
+        <div>Feature</div>
+        <div>Parent</div>
+        <div>Sub-issues</div>
+        <div>Screen</div>
+        <div>Status</div>
+      </div>
+
+      <!-- F1 -->
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F1</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">SLA Timer Backend</p>
+          <p class="text-xs text-stone-400 mt-0.5">Timer service + StreamChat webhook integration</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1142" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1142
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1148" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1148 <span class="text-stone-400">BE</span>
+          </a>
+        </div>
+        <span class="text-xs text-stone-400 italic">No UI</span>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full w-fit">Ready for Dev</span>
+      </div>
+
+      <!-- F2 -->
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F2</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Thread Card Status Indicator</p>
+          <p class="text-xs text-stone-400 mt-0.5">Green/Yellow/Red badge + elapsed timer on thread cards</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1143" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1143
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1149" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1149 <span class="text-stone-400">Design</span>
+          </a>
+          <a href="https://linear.app/maestroinc/issue/MAE-1150" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1150 <span class="text-stone-400">FE</span>
+          </a>
+        </div>
+        <a href="s1-thread-list.html" class="text-xs text-blue-600 hover:underline font-medium">S1</a>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full w-fit">Ready for Design</span>
+      </div>
+
+      <!-- F3 -->
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F3</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Thread Sorting by SLA Status</p>
+          <p class="text-xs text-stone-400 mt-0.5">2-tier sort: Red/Yellow first, then Green by recency</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1144" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1144
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1151" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1151 <span class="text-stone-400">BE+FE</span>
+          </a>
+        </div>
+        <a href="s1-thread-list.html" class="text-xs text-blue-600 hover:underline font-medium">S1</a>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full w-fit">Ready for Dev</span>
+      </div>
+
+      <!-- F4 -->
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F4</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Filters, Unread Badges & Clear Timer</p>
+          <p class="text-xs text-stone-400 mt-0.5">All/My Threads tabs, badge counts, manual timer clear + audit</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1145" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1145
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1152" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1152 <span class="text-stone-400">Design</span>
+          </a>
+          <a href="https://linear.app/maestroinc/issue/MAE-1153" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1153 <span class="text-stone-400">FE+BE</span>
+          </a>
+        </div>
+        <a href="s1-thread-list.html" class="text-xs text-blue-600 hover:underline font-medium">S1</a>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full w-fit">Ready for Design</span>
+      </div>
+
+      <!-- F5 -->
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F5</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">SLA Configuration Panel</p>
+          <p class="text-xs text-stone-400 mt-0.5">Threshold config with inequality operators, inbound/outbound</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1146" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1146
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1154" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1154 <span class="text-stone-400">Design</span>
+          </a>
+          <a href="https://linear.app/maestroinc/issue/MAE-1155" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1155 <span class="text-stone-400">FE+BE</span>
+          </a>
+        </div>
+        <a href="s2-config.html" class="text-xs text-blue-600 hover:underline font-medium">S2</a>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full w-fit">Ready for Design</span>
+      </div>
+
+      <!-- F6 -->
+      <div class="grid px-5 py-3 items-start hover:bg-stone-50 transition-colors"
+           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+        <span class="text-xs font-bold text-stone-400">F6</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Management Dashboard & Reporting</p>
+          <p class="text-xs text-stone-400 mt-0.5">Live SLA counts, compliance rate, violation report table</p>
+        </div>
+        <div>
+          <a href="https://linear.app/maestroinc/issue/MAE-1147" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
+            <svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#5E6AD2"/><path d="M4 10.5L8 4l4 6.5H4z" fill="white" opacity="0.9"/></svg>
+            MAE-1147
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <a href="https://linear.app/maestroinc/issue/MAE-1156" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1156 <span class="text-stone-400">Design</span>
+          </a>
+          <a href="https://linear.app/maestroinc/issue/MAE-1157" target="_blank"
+             class="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500 bg-stone-50 border border-stone-200 rounded px-1.5 py-0.5 hover:bg-stone-100 transition-colors">
+            MAE-1157 <span class="text-stone-400">BE+FE</span>
+          </a>
+        </div>
+        <a href="s3-dashboard.html" class="text-xs text-blue-600 hover:underline font-medium">S3</a>
+        <span class="inline-flex items-center text-[10px] font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full w-fit">Ready for Design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="w-full max-w-6xl text-center">
+    <p class="text-xs text-stone-400">
+      PRD: Nirav Amin &middot; Prototype: Mishal Chowdhury &middot; March 2026
+    </p>
+  </div>
+
+</body>
+</html>
