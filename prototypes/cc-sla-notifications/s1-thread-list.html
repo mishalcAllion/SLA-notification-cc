@@ -591,8 +591,8 @@
 
         <!-- SLA waiting indicator -->
         <div id="slaWaitingIndicator" class="flex items-center justify-center py-3">
-          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          <div id="waitingPill" class="flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200">
+            <span id="waitingDot" class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             <span id="waitingTimerText" class="text-xs font-medium text-red-600">Client waiting 45:12</span>
           </div>
         </div>
@@ -992,6 +992,8 @@
     const text = document.getElementById('headerSlaText');
     const waitingIndicator = document.getElementById('slaWaitingIndicator');
     const waitingText = document.getElementById('waitingTimerText');
+    const waitingPill = document.getElementById('waitingPill');
+    const waitingDot = document.getElementById('waitingDot');
 
     if (d.status === 'red') {
       badge.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 border border-red-200';
@@ -999,21 +1001,39 @@
       text.className = 'text-[10px] font-semibold text-red-600';
       text.textContent = 'Waiting ' + formatElapsed(d.elapsed);
       badge.classList.remove('hidden');
-      if (waitingIndicator) { waitingIndicator.classList.remove('hidden'); waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed); }
+      if (waitingIndicator) {
+        waitingIndicator.classList.remove('hidden');
+        waitingPill.className = 'flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200';
+        waitingDot.className = 'w-2 h-2 rounded-full bg-red-500 animate-pulse';
+        waitingText.className = 'text-xs font-medium text-red-600';
+        waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed);
+      }
     } else if (d.status === 'yellow') {
       badge.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200';
       dot.className = 'w-2 h-2 rounded-full bg-amber-500';
       text.className = 'text-[10px] font-semibold text-amber-600';
       text.textContent = 'Waiting ' + formatElapsed(d.elapsed);
       badge.classList.remove('hidden');
-      if (waitingIndicator) { waitingIndicator.classList.remove('hidden'); waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed); }
+      if (waitingIndicator) {
+        waitingIndicator.classList.remove('hidden');
+        waitingPill.className = 'flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200';
+        waitingDot.className = 'w-2 h-2 rounded-full bg-amber-500 animate-pulse';
+        waitingText.className = 'text-xs font-medium text-amber-600';
+        waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed);
+      }
     } else if (d.status === 'green-active') {
       badge.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 border border-green-200';
       dot.className = 'w-2 h-2 rounded-full bg-green-500';
       text.className = 'text-[10px] font-semibold text-green-600';
       text.textContent = 'Waiting ' + formatElapsed(d.elapsed);
       badge.classList.remove('hidden');
-      if (waitingIndicator) { waitingIndicator.classList.remove('hidden'); waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed); }
+      if (waitingIndicator) {
+        waitingIndicator.classList.remove('hidden');
+        waitingPill.className = 'flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200';
+        waitingDot.className = 'w-2 h-2 rounded-full bg-green-500 animate-pulse';
+        waitingText.className = 'text-xs font-medium text-green-600';
+        waitingText.textContent = 'Client waiting ' + formatElapsed(d.elapsed);
+      }
     } else if (d.status === 'green') {
       badge.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 border border-green-200';
       dot.className = 'w-2 h-2 rounded-full bg-green-500';
