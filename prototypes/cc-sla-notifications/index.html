@@ -125,6 +125,39 @@
     </div>
   </div>
 
+  <!-- V2 TIMER APPROACH COMPARISON -->
+  <div class="w-full max-w-6xl mb-8">
+    <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
+      <div class="px-5 py-4 border-b border-stone-100 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-stone-400">V2 -- Timer Approach Comparison</p>
+          <p class="text-xs text-stone-400 mt-1">Two variants of S1 (Thread List) for Nirav to review. Same data, different timer framing.</p>
+        </div>
+        <span class="text-xs text-stone-400">2 variants</span>
+      </div>
+
+      <!-- Option A -->
+      <a href="s1-v2a-elapsed.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-blue-50/50 transition-colors cursor-pointer" style="grid-template-columns: 3rem 1fr 10rem">
+        <span class="text-xs font-bold text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">A</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Elapsed Timer (Client Wait Time)</p>
+          <p class="text-xs text-stone-400 mt-0.5">Shows "Waiting 22:43" -- how long the client has been waiting. Colors: Green (<15m) / Yellow (15-30m) / Red (>30m). Client-impact framing.</p>
+        </div>
+        <span class="text-xs text-blue-600 font-medium hover:underline text-right">Open Option A &rarr;</span>
+      </a>
+
+      <!-- Option B -->
+      <a href="s1-v2b-countdown.html" class="grid px-5 py-4 items-center hover:bg-purple-50/50 transition-colors cursor-pointer" style="grid-template-columns: 3rem 1fr 10rem">
+        <span class="text-xs font-bold text-purple-600 bg-purple-50 rounded px-1.5 py-0.5 text-center">B</span>
+        <div>
+          <p class="text-sm font-medium text-stone-900">Countdown to Breach (Intercom-style)</p>
+          <p class="text-xs text-stone-400 mt-0.5">Shows "7:17 left" or "BREACHED 15:12 ago". Colors: Grey (>5m left) / Orange (<5m left) / Red (breached). Agent-urgency framing.</p>
+        </div>
+        <span class="text-xs text-purple-600 font-medium hover:underline text-right">Open Option B &rarr;</span>
+      </a>
+    </div>
+  </div>
+
   <!-- LINEAR TICKET MAPPING -->
   <div class="w-full max-w-6xl mb-8">
     <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
