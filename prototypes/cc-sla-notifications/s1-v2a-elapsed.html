@@ -119,25 +119,22 @@
             <span id="headerSlaDot" class="w-2 h-2 rounded-full bg-red-500"></span>
             <span id="headerSlaText" class="text-[10px] font-semibold text-red-600">Waiting 45:12</span>
           </div>
-          <!-- Status dropdown -->
-          <div class="relative select-none">
-            <div class="inline-flex items-center justify-center pl-4 pr-3 py-2 rounded-full text-sm font-medium gap-1 cursor-pointer transition bg-[hsla(218,90%,96%,1)] text-[hsla(217,91%,60%,1)] hover:bg-gray-100">
-              <span>New</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="m6 9 6 6 6-6"></path></svg>
-            </div>
-          </div>
+          <!-- Status dropdown REMOVED — "New/In Progress/Done" tabs and status dropdown are being deprecated from CC messaging view -->
         </div>
         <div class="flex items-center space-x-2">
-          <!-- Clear Timer button (SLA feature) -->
-          <button id="clearTimerBtn" onclick="openClearModal()"
-            class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-red-200 bg-red-50 text-red-700 hover:bg-red-100 transition-colors duration-200">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/>
-              <path stroke-linecap="round" d="M12 7v5l3 3"/>
-              <path stroke-linecap="round" d="M8 8l8 8" stroke-width="2.5"/>
-            </svg>
-            Clear Timer
-          </button>
+          <!-- Clear Timer button (SLA feature) — PHASE 2 -->
+          <div class="flex items-center gap-1.5">
+            <button id="clearTimerBtn" onclick="openClearModal()"
+              class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-red-200 bg-red-50 text-red-700 hover:bg-red-100 transition-colors duration-200 opacity-50 pointer-events-none">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path stroke-linecap="round" d="M12 7v5l3 3"/>
+                <path stroke-linecap="round" d="M8 8l8 8" stroke-width="2.5"/>
+              </svg>
+              Clear Timer
+            </button>
+            <span class="text-[9px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200 whitespace-nowrap">Phase 2</span>
+          </div>
           <!-- Search messages -->
           <button class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Search messages (Ctrl+Shift+F)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>

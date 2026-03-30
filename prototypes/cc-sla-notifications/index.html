@@ -74,6 +74,24 @@
     </div>
   </div>
 
+  <!-- EXISTING CC ELEMENTS TO REMOVE -->
+  <div class="w-full max-w-6xl mb-6">
+    <div class="bg-red-50 rounded-xl border border-red-200 px-5 py-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-red-700 mb-2">Existing CC Elements to Remove</p>
+      <p class="text-xs text-stone-700 mb-1">As part of this feature rollout, the following existing Command Center elements must be removed:</p>
+      <ul class="text-xs text-stone-700 space-y-1 mt-2">
+        <li class="flex items-start gap-2">
+          <span class="text-red-500 font-bold mt-0.5 shrink-0">&times;</span>
+          <span><span class="font-semibold">"New / In Progress / Done" tabs</span> — the status filter tabs in the messaging sidebar thread list. SLA-based sorting replaces manual status filtering.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-red-500 font-bold mt-0.5 shrink-0">&times;</span>
+          <span><span class="font-semibold">Status dropdown</span> — the "New" / status pill dropdown in the message header view. No longer needed with SLA-driven workflow.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <!-- PROTOTYPE SCREENS -->
   <div class="w-full max-w-6xl mb-8">
     <div class="bg-white rounded-xl border border-stone-200 overflow-hidden">
@@ -86,7 +104,7 @@
       <a href="s1-thread-list.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
         <span class="text-xs font-bold text-stone-400">S1</span>
         <div>
-          <p class="text-sm font-medium text-stone-900">Thread List with SLA Indicators</p>
+          <p class="text-sm font-medium text-stone-900 flex items-center gap-2">Thread List with SLA Indicators <span class="text-[10px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full border border-green-200">Phase 1</span></p>
           <p class="text-xs text-stone-400 mt-0.5">Status badges, 2-tier sorting, All/My Threads tabs, unread badges, clear timer action</p>
         </div>
         <div class="flex items-center gap-1.5 flex-wrap">
@@ -98,10 +116,10 @@
       </a>
 
       <!-- Screen 2 -->
-      <a href="s2-config.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
+      <a href="s2-config.html" class="grid px-5 py-4 border-b border-stone-100 items-center hover:bg-stone-50 transition-colors cursor-pointer opacity-60" style="grid-template-columns: 2rem 1fr 14rem 7rem">
         <span class="text-xs font-bold text-stone-400">S2</span>
         <div>
-          <p class="text-sm font-medium text-stone-900">SLA Configuration Panel</p>
+          <p class="text-sm font-medium text-stone-900 flex items-center gap-2">SLA Configuration Panel <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200">Phase 2</span></p>
           <p class="text-xs text-stone-400 mt-0.5">Yellow/Red threshold config, inequality operators, inbound/outbound, validation, restore defaults</p>
         </div>
         <div class="flex items-center gap-1.5">
@@ -111,10 +129,10 @@
       </a>
 
       <!-- Screen 3 -->
-      <a href="s3-dashboard.html" class="grid px-5 py-4 items-center hover:bg-stone-50 transition-colors cursor-pointer" style="grid-template-columns: 2rem 1fr 14rem 7rem">
+      <a href="s3-dashboard.html" class="grid px-5 py-4 items-center hover:bg-stone-50 transition-colors cursor-pointer opacity-60" style="grid-template-columns: 2rem 1fr 14rem 7rem">
         <span class="text-xs font-bold text-stone-400">S3</span>
         <div>
-          <p class="text-sm font-medium text-stone-900">Management Dashboard & Violation Report</p>
+          <p class="text-sm font-medium text-stone-900 flex items-center gap-2">Management Dashboard & Violation Report <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200">Phase 2</span></p>
           <p class="text-xs text-stone-400 mt-0.5">Live SLA counts, compliance rate, filterable violation table, pagination</p>
         </div>
         <div class="flex items-center gap-1.5">
@@ -168,9 +186,10 @@
 
       <!-- Column headers -->
       <div class="grid px-5 py-2 bg-stone-50 border-b border-stone-100 text-[10px] font-bold uppercase tracking-widest text-stone-400"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <div>#</div>
         <div>Feature</div>
+        <div>Phase</div>
         <div>Parent</div>
         <div>Sub-issues</div>
         <div>Screen</div>
@@ -179,12 +198,13 @@
 
       <!-- F1 -->
       <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F1</span>
         <div>
           <p class="text-sm font-medium text-stone-900">SLA Timer Backend</p>
           <p class="text-xs text-stone-400 mt-0.5">Timer service + StreamChat webhook integration</p>
         </div>
+        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full border border-green-200 w-fit">Phase 1</span>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1142" target="_blank"
              class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
@@ -204,12 +224,13 @@
 
       <!-- F2 -->
       <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F2</span>
         <div>
           <p class="text-sm font-medium text-stone-900">Thread Card Status Indicator</p>
           <p class="text-xs text-stone-400 mt-0.5">Green/Yellow/Red badge + elapsed timer on thread cards</p>
         </div>
+        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full border border-green-200 w-fit">Phase 1</span>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1143" target="_blank"
              class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
@@ -233,12 +254,13 @@
 
       <!-- F3 -->
       <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F3</span>
         <div>
           <p class="text-sm font-medium text-stone-900">Thread Sorting by SLA Status</p>
           <p class="text-xs text-stone-400 mt-0.5">2-tier sort: Red/Yellow first, then Green by recency</p>
         </div>
+        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full border border-green-200 w-fit">Phase 1</span>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1144" target="_blank"
              class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
@@ -258,11 +280,15 @@
 
       <!-- F4 -->
       <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F4</span>
         <div>
           <p class="text-sm font-medium text-stone-900">Filters, Unread Badges & Clear Timer</p>
           <p class="text-xs text-stone-400 mt-0.5">All/My Threads tabs, badge counts, manual timer clear + audit</p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="text-[10px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full border border-green-200 w-fit">Phase 1</span>
+          <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200 w-fit">Phase 2</span>
         </div>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1145" target="_blank"
@@ -286,13 +312,14 @@
       </div>
 
       <!-- F5 -->
-      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+      <div class="grid px-5 py-3 border-b border-stone-100 items-start hover:bg-stone-50 transition-colors opacity-60"
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F5</span>
         <div>
           <p class="text-sm font-medium text-stone-900">SLA Configuration Panel</p>
           <p class="text-xs text-stone-400 mt-0.5">Threshold config with inequality operators, inbound/outbound</p>
         </div>
+        <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200 w-fit">Phase 2</span>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1146" target="_blank"
              class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
@@ -315,13 +342,14 @@
       </div>
 
       <!-- F6 -->
-      <div class="grid px-5 py-3 items-start hover:bg-stone-50 transition-colors"
-           style="grid-template-columns: 2.5rem 1fr 7rem 16rem 8rem 7rem">
+      <div class="grid px-5 py-3 items-start hover:bg-stone-50 transition-colors opacity-60"
+           style="grid-template-columns: 2.5rem 1fr 5rem 7rem 16rem 8rem 7rem">
         <span class="text-xs font-bold text-stone-400">F6</span>
         <div>
           <p class="text-sm font-medium text-stone-900">Management Dashboard & Reporting</p>
           <p class="text-xs text-stone-400 mt-0.5">Live SLA counts, compliance rate, violation report table</p>
         </div>
+        <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200 w-fit">Phase 2</span>
         <div>
           <a href="https://linear.app/maestroinc/issue/MAE-1147" target="_blank"
              class="inline-flex items-center gap-1 text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded px-1.5 py-0.5 hover:bg-indigo-100 transition-colors">
